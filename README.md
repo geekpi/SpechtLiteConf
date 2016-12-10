@@ -1,6 +1,18 @@
+# Generate config file for [SpechtLite](https://github.com/zhuhaow/SpechtLite)
+
+## List Explaination
+
+- **gfwlist**: proxy list gnerate from [gfwlist](https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt)
+
+- *whitelist*: white list generate from [dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
+
+- *adlist*: ad list should be rejected
+
+- *proxyiprange*: Add telegram and Amazon EC2 IPs
+
 ##How to use
-> 1. `pip3 install -r requirement.txt`
-> 2. configure your own adapter in `gfwlist.yaml` or `whitelist.yaml`
+> 1. Go to `conf` and configure your own adapter in `gfwlist.yaml` or `whitelist.yaml`. If you don't need to generate new config file, just jump to step 4
+> 2. `pip3 install -r requirement.txt`
 > 3. `python3 spechtlite_conf.py`
 > 4. copy or link files which in `conf` to `~/SpechtLiteConf`
 
@@ -8,7 +20,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2016 geekpi
+Copyright (c) 2016 geekpi
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
