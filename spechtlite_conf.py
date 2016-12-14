@@ -42,7 +42,7 @@ def get_gfw_list():
                     gfwlist_path.write('%s\n' % '\.'.join(domain[0].split('.')))
     print('gfwlist done!')
 
-def get_ad_list():
+def get_reject_list():
     print('start to get rejectlist')
     rejectlist_url = 'https://raw.githubusercontent.com/BurpSuite/CloudGate-RuleList/master/Rule/REJECT'
     rejectlist_path = './conf/rejectlist'
@@ -55,6 +55,6 @@ def get_ad_list():
     print('rejectlist done!')
 
 if __name__ == '__main__':
-    #get_gfw_list()
-    #get_white_list()
-    get_ad_list()
+    get_gfw_list()
+    get_white_list()
+    get_reject_list()
