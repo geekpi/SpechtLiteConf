@@ -6,7 +6,7 @@
 
 - **whitelist**: white list generate from [dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
 
-- **rejectlist**: reject list from [BurpSuite](http://BurpSuite.Site/Rule/General/Surge.php)
+- **rejectlist**: reject list from [BurpSuite](https://raw.githubusercontent.com/BurpSuite/CloudGate-RuleList/master/Rule/REJECT)
 
 - **proxyiprange**: Add telegram and Amazon EC2 IPs
 
