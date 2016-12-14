@@ -6,7 +6,7 @@
 
 - *whitelist*: white list generate from [dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
 
-- *adlist*: ad list should be rejected
+- *rejectlist*: reject list from [BurpSuite](http://BurpSuite.Site/Rule/General/Surge.php)
 
 - *proxyiprange*: Add telegram and Amazon EC2 IPs
 

@@ -65,7 +65,7 @@ rule:
     adapter: proxy
   - type: list
   # Reject requests based on whether the host domain matches the given regular expressions.
-    file: ~/.SpechtLite/adlist
+    file: ~/.SpechtLite/rejectlist
     adapter: reject
   - type: country
   # When the location is unknown. Usually this means this is resolved an Intranet IP.
