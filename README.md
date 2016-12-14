@@ -4,11 +4,11 @@
 
 - **gfwlist**: proxy list gnerate from [gfwlist](https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt)
 
-- *whitelist*: white list generate from [dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
+- **whitelist**: white list generate from [dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
 
-- *rejectlist*: reject list from [BurpSuite](http://BurpSuite.Site/Rule/General/Surge.php)
+- **rejectlist**: reject list from [BurpSuite](http://BurpSuite.Site/Rule/General/Surge.php)
 
-- *proxyiprange*: Add telegram and Amazon EC2 IPs
+- **proxyiprange**: Add telegram and Amazon EC2 IPs
 
 ##How to use
 > 1. Go to `conf` and configure your own adapter in `gfwlist.yaml` or `whitelist.yaml`. If you don't need to generate new config file, just jump to step 4
