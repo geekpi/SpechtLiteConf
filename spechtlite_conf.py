@@ -7,6 +7,16 @@ import re
 import io
 
 
+def surge_to_specht(domain_type, domain_url):
+    if domain_type == 'DOMAIN-KEYWORD':
+        return domain_url
+    elif domain_type == 'DOMAIN-SUFFIX':
+        return '%s$\n' % '\.'.join(domain_url.split('.'))
+    elif domain_type == 'DOMAIN':
+        #todo
+        return '%s$\n' % '\.'.join(domain_url.split('.'))
+   
+
 def get_white_list():
     print('start to generate whitelist')
     whitelist_url = 'https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf'
@@ -17,7 +27,7 @@ def get_white_list():
         for line in data.iter_lines():
             domain = re.findall(r'\w+\.\w+', line.decode('utf-8'))
             if len(domain) > 0:
-                f.write('%s\n' % '\.'.join(domain[0].split('.')))
+                f.write(surge_to_specht('DOMAIN-SUFFIX', domain[0]))
     print('whitelist done!')
 
 
@@ -39,7 +49,7 @@ def get_gfw_list():
             else:
                 domain = re.findall(domain_pattern, line)
                 if domain:
-                    gfwlist_path.write('%s\n' % '\.'.join(domain[0].split('.')))
+                    gfwlist_path.write(surge_to_specht('DOMAIN-SUFFIX', domain[0]))
     print('gfwlist done!')
 
 def get_reject_list():
@@ -50,8 +60,8 @@ def get_reject_list():
     
     with open(rejectlist_path, 'w') as f:
         for line in data.iter_lines():
-            domain = line.split(',')[1]
-            f.write('%s\n' % '\.'.join(domain.split('.')))
+            domain = line.decode('utf-8').split(',')
+            f.write(surge_to_specht(domain[0], domain[1]))
     print('rejectlist done!')
 
 if __name__ == '__main__':
