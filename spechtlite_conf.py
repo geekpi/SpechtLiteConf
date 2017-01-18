@@ -9,7 +9,7 @@ import io
 
 def surge_to_specht(domain_type, domain_url):
     if domain_type == 'DOMAIN-KEYWORD':
-        return domain_url
+        return '%s\n' % '\.'.join(domain_url.split('.'))
     elif domain_type == 'DOMAIN-SUFFIX':
         return '%s$\n' % '\.'.join(domain_url.split('.'))
     elif domain_type == 'DOMAIN':
@@ -41,7 +41,7 @@ def get_gfw_list():
 
     data = requests.get(gfwlist_url).text
     content = base64.b64decode(data)
-
+    
     with open(gfwlist_path, 'w') as gfwlist_path:
         for line in io.StringIO(content.decode('utf-8')).readlines():
             if re.findall(comment_pattern, line):
@@ -49,7 +49,10 @@ def get_gfw_list():
             else:
                 domain = re.findall(domain_pattern, line)
                 if domain:
-                    gfwlist_path.write(surge_to_specht('DOMAIN-SUFFIX', domain[0]))
+                    if line.startswith('||') or line.startswith('|'):
+                        gfwlist_path.write(surge_to_specht('DOMAIN-SUFFIX', domain[0]))
+                    else:
+                        gfwlist_path.write(surge_to_specht('DOMAIN-KEYWORD', domain[0]))
     print('gfwlist done!')
 
 def get_reject_list():
