@@ -64,7 +64,8 @@ def get_reject_list():
     with open(rejectlist_path, 'w') as f:
         for line in data.iter_lines():
             domain = line.decode('utf-8').split(',')
-            f.write(surge_to_specht(domain[0], domain[1]))
+            if len(domain) > 1:
+                f.write(surge_to_specht(domain[0], domain[1]))
     print('rejectlist done!')
 
 if __name__ == '__main__':
