@@ -25,10 +25,8 @@ def get_white_list():
 
     with open(whitelist_path, 'w') as f:
         for line in data.iter_lines():
-            domain = re.findall(r'\w+\.\w+', line.decode('utf-8'))
-            if len(domain) > 0:
-                f.write(surge_to_specht('DOMAIN-KEYWORD', domain[0]))
-    print('whitelist done!')
+            f.write(surge_to_specht('DOMAIN-KEYWORD', line.decode('utf-8').split('/')[1]))
+        print('whitelist done!')
 
 
 def get_gfw_list():
